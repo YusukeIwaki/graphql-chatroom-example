@@ -5,10 +5,11 @@ ruby '2.7.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
-# Use postgresql as the database for Active Record
-gem 'pg', '>= 0.18', '< 2.0'
-# Use Puma as the app server
-gem 'puma', '~> 4.1'
+
+gem 'graphql'
+gem 'pg', '>= 0.18', '< 2.0' # Use postgresql as the database for Active Record
+gem 'puma', '~> 4.1' # Use Puma as the app server
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
@@ -31,6 +32,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'graphiql-rails'
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
