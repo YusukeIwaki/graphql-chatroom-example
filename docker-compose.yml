@@ -1,0 +1,28 @@
+version: "3"
+services:
+  web:
+    build: .
+    volumes:
+      - .:/graphql-chatroom-example
+      - bundle-data:/usr/local/bundle
+    working_dir: /graphql-chatroom-example
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgres://graph:passpass@postgres:5432/chatroom
+
+  postgres:
+    image: postgres:12-alpine
+    restart: always
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: graph
+      POSTGRES_PASSWORD: passpass
+      POSTGRES_DB: chatroom
+
+volumes:
+  bundle-data:
+    driver: local
+  postgres-data:
+    driver: local
